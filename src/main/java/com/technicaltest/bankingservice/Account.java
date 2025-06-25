@@ -38,7 +38,7 @@ public class Account implements AccountService {
         System.out.println("Date       || Amount || Balance");
         int balance = 0;
         List<Transaction> sorted = new ArrayList<>(transactions);
-        // i used lambas here to avoid lines of code
+        // lambas here to  avoid multiple lines of code
         sorted.sort((t1, t2) -> t1.getDate().compareTo(t2.getDate()));
         List<String> lines = new ArrayList<>();
         for (Transaction t : sorted) {
@@ -51,5 +51,9 @@ public class Account implements AccountService {
         for (int i = lines.size() - 1; i >= 0; i--) {
             System.out.println(lines.get(i));
         }
+    }
+    // added to for unit test
+    public List<Transaction> getTransactions() {
+        return new ArrayList<>(transactions);
     }
 }
